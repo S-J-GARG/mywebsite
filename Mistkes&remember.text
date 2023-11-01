@@ -1,0 +1,23 @@
+
+
+!  The three-step guide to making model or any changes in it:
+
+    1.  Change your models (in models.py).
+    2.  Run python manage.py makemigrations ----to create migrations for those changes
+    3.  Run python manage.py migrate  ---- to apply those changes to the database.
+
+! 2) Please check each one of these apps urls.py to see if you accidently put { } rather than [ ].
+        urlpattern{
+            path() ---- ! Its Worng
+            }
+
+            urlpattern[
+            path() ---- ! Its Correct
+            ]
+! 3) Creating an admin user
+        python manage.py createssuperuser
+  
+  
+! 4) currently_work_as=models.CharField(max_length=100,default="", editable=False)
+    Here default="" is used because>
+        It is impossible to add a non-nullable field 'email_id' to user without specifying a default. This is because the database needs something to populate existing rows.
