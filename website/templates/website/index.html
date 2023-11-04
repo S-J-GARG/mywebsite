@@ -1,9 +1,9 @@
 
 {%extends 'website/base.html' %}
-{%block title}Home Page{%endblock title}
+{%block title%} Home Page{% endblock title%}
 
-    {%block content}
-    <h1>{{my.name}}
+    {%block content%}
+    <h1 class="name">{{my.name}}
     </h1>
     <P><h3>
         {{my.tag_line}}
@@ -11,4 +11,16 @@
     <h4>
         {{my.currently_work_as}}
     </h4>
-    {%endblock content}
+    
+    </P>
+    {%endblock  %}
+    {% block testimonials %}
+    <div class="testimonials">
+        <div class="tests test1">
+            <h3>Test 1</h3>
+        </div>
+        <div class="tests test2"> <h3>Test 2</h3></div>
+        <div class="tests test3"> <h3>Test 3</h3></div>
+
+    </div>
+    {% endblock testimonials %}

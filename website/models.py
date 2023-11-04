@@ -87,11 +87,11 @@ class myBlog(models.Model):
 
 class ContactForm(models.Model):
   # contact_com=models.ForeignKey(User,on_delete=models.CASCADE,default=0)
-  cont_name=models.CharField(max_length=100,default='Ram',null=True)
-  cont_email=models.CharField(max_length=100,default='Ram',null=True)
-  query=models.CharField(max_length=500)
+  Name=models.CharField(max_length=100,default='Ram',null=True)
+  Email=models.CharField(max_length=100,default='Ram',null=True)
+  Message=models.CharField(max_length=500)
   def __str__(self):
-     return self.cont_name
+     return self.Name
   def as_dict(self):
         # Return all fields as a dictionary
         return vars(self)
