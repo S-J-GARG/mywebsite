@@ -1,22 +1,14 @@
-<!DOCTYPE html>
-<html lang="en">
-<head>
-    <meta charset="UTF-8">
-    <meta namy="viewport" content="width=device-width, initial-scale=1.0">
-    {% load static%}
-    <link rel="stylesheet" href="{% static 'website/style.css'%}">
 
-    <title>Document</title>
-</head>
-<body>
-    <header></header>
-    <h1>
-    {{my.name}}
+{%extends 'website/base.html' %}
+{%block title}Home Page{%endblock title}
+
+    {%block content}
+    <h1>{{my.name}}
     </h1>
     <P><h3>
         {{my.tag_line}}
     </h3>
-    {{my.currently_work_as}}
-</P>
-</body>
-</html>
+    <h4>
+        {{my.currently_work_as}}
+    </h4>
+    {%endblock content}

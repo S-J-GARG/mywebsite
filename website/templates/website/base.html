@@ -1,0 +1,72 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    {%load static%}
+    <link rel="stylesheet" href="{% static 'website/basestyle.css'%}">
+    
+    <title>{%block title%} {%endblock title%} </title>
+</head>
+<body>
+    
+    <div class="mainbar">
+        <div class="logo"><a href="{%url 'website:index'  %}" id="contact" >LOGO</a></div>
+        <div class="navlinks">
+            <div class="links">
+            <a href="{%url 'website:contact'  %}" id="contact" >About me</a> 
+
+            </div>
+            <div class="links">
+    <a href="{%url 'website:contact'  %}" id="contact" >Work</a> 
+                
+            </div>
+            <div class="links">
+    <a href="{%url 'website:contact'  %}" id="contact" >Blog</a> 
+
+            </div>
+            <div class="links">
+    <a href="{%url 'website:contact'  %}" id="contact" >Contact ME</a> 
+
+            </div>
+
+        </div>
+    </div>
+   {%block content%} {%endblock content%}
+   {%block testimonials%} {%endblock testimonials%}
+  <footer>  
+    
+        <div class="mainfooter">
+            <div class="compartment_upper">
+         <div class="sideleft">   <span class="say-hello">
+            Say Hello 
+        </span>
+        <u class="ft-link">
+            <li class="ft-links">email</li>
+            <li class="ft-links">Telegram</li>
+        </u>
+    </div>
+         <div class="sideright">   <span class="say-hello">
+            Follow me !
+        </span>
+        <u class="ft-link">
+            <li class="ft-links">LinkedIn</li>
+            <li class="ft-links">DEV</li>
+            <li class="ft-links">Twitter</li>
+            <li class="ft-links">GIT Hub</li>
+            <li class="ft-links">Telegram</li>
+        </u>
+            </div>
+</div>
+        <div class="ftdividerline"></div>
+        <div class="compartment_lower">
+                 <span class="copyright">
+                    &copy; copyright 
+                 </span>                   
+        </div>
+        </div>
+    
+</footer>
+    
+</body>
+</html>
