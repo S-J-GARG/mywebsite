@@ -1,0 +1,14 @@
+{% extends "website/base.html"%}
+{%block title%}Blogs {%endblock title%}
+    {%block content%} 
+    {% for blogs in blog %}
+    <div class="testimon">
+            <h3>{{blogs.article_name}} </h3>
+            <h4>{{blogs.blog_title}} </h4>
+            <p>
+                <!-- {{blogs.content}} it showing as follow <h1><strong>sdhfliahfiiiauauauauauauauauauauauauauauau</strong></h1> <hr /> <h1>fsdasdv</h1> <p><u><em>fasgjgejgp</em></u></p>  -->
+                <div>{{ blogs.content | safe }}</div>
+            </p>
+            
+    {% endfor %}
+    {%endblock content%} 

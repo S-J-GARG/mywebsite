@@ -3,7 +3,9 @@ from django.http import HttpResponse
 from .models import User,Testimonials,Work,Skills,ContactForm,myBlog,EducationCertificate,Portfolio
 from .forms import ContactUsform
 
+
 # Create your views here.
+
 def index(request):
 # Replace this with your specific query, such as filtering or retrieving all users
     users = User.objects.all()  # Example: Retrieve all User objects
@@ -15,9 +17,30 @@ def index(request):
         'my':my_data
     }
     # Testimonials for home page
+    tests = Testimonials.objects.order_by("-Clinet_name")[:5]  # Example: Retrieve all User objects
+# Get the IDs of the User objects in the QuerySet
+    # test_ids = [user.id for user in tests]
+    # test_id=test_ids[0] # Retrieving number from list
+    # test_data=Testimonials.objects.get(pk=test_id) #Since I am the only user
+    testtext={
+        'test':tests
+    }
+    
+    return render(request, 'website/index.html', {**context,**testtext})
+# def testimonial(request):
+# # Replace this with your specific query, such as filtering or retrieving all users
+#     users = Testimonials.objects.all()  # Example: Retrieve all User objects
+# # Get the IDs of the User objects in the QuerySet
+#     user_ids = [user.id for user in users]
+#     my_id=user_ids[0] # Retrieving number from list
+#     my_data=Testimonials.objects.get(pk=my_id) #Since I am the only user
+#     context={
+#         'test':my_data
+#     }
+#     # Testimonials for home page
     
     
-    return render(request, 'website/index.html', context)
+#     return render(request, 'website/index.html', context)
 
 def contact(request):
     if request.method == 'POST':
@@ -38,3 +61,9 @@ def contact(request):
         form = ContactUsform()
 
     return render(request, 'website/contactus.html', {'form': form})
+def blog(request):
+    blogs=myBlog.objects.order_by("-article_name")[:5]
+    blogtext={
+        'blog':blogs
+    }
+    return render(request,'website/blog.html',blogtext)

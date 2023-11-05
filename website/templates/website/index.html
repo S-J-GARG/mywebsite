@@ -14,13 +14,12 @@
     
     </P>
     {%endblock  %}
-    {% block testimonials %}
-    <div class="testimonials">
-        <div class="tests test1">
-            <h3>Test 1</h3>
-        </div>
-        <div class="tests test2"> <h3>Test 2</h3></div>
-        <div class="tests test3"> <h3>Test 3</h3></div>
-
+    {% block testimonial %}
+    {% for tests in test %}
+    <div class="testimon">
+            <h3>{{tests.Clinet_name}} </h3>
+            <p>{{tests.comment}} <br>{{tests.stasified_with_work}}
+            </p>
+    {% endfor %}
     </div>
-    {% endblock testimonials %}
+    {% endblock testimonial %}
