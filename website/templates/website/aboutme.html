@@ -1,0 +1,12 @@
+{%extends 'website/base.html' %}
+{%block title%}About me{% endblock title%}
+
+{% block content3 %}
+{% for pic in images %}
+    <div>{{ pic.image_name }}</div>
+    <div>
+    <img src="{{ pic.image_pic.url }}" alt="connect" style="height: 300px; width: 400px;">
+</div>
+{% endfor %}
+<h4><a href="{% url 'website:index' %}">Back To Home</a></h4>
+{% endblock %}
