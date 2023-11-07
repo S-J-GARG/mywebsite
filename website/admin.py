@@ -1,5 +1,5 @@
 from django.contrib import admin
-from .models import User,Testimonials,Work,Skills,ContactForm,myBlog,EducationCertificate,Portfolio
+from .models import User,Testimonials,Work,Skills,ContactForm,myBlog,EducationCertificate,Portfolio,MyImages
 from ckeditor.widgets import CKEditorWidget
 
 #Todo Register your models here.
@@ -35,11 +35,16 @@ class blogInline(admin.ModelAdmin):
     formfield_overrides = {
         myBlog.content: {'widget': CKEditorWidget()},
     }
-admin.site.register(myBlog,blogInline)
+class MyImagesInLine(admin.ModelAdmin):
+   model=MyImages
+   extra=4
+   list_display=['image_name','image_pic']
+
 
 class userInline(admin.ModelAdmin):
    list_display=['name'] #display should of  User model not Skill model
    inlines=[skillsInline,TestimonialsInline,WorkInline,PortfolioInline]
-
-admin.site.register(User,userInline)
 admin.site.register(ContactForm)
+admin.site.register(MyImages,MyImagesInLine)
+admin.site.register(myBlog,blogInline)
+admin.site.register(User,userInline)

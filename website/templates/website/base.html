@@ -1,29 +1,35 @@
+{%load static%}
 <!DOCTYPE html>
 <html lang="en">
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    {%load static%}
-    <link rel="stylesheet" href="{% static 'website/colors/basestyle.css'%}" >
-    {%load static%}
-    <link rel="stylesheet" href="{% static 'website/colors/index.css'%}">
-    <link rel="stylesheet" href="{% static 'website/fonts/basefonts.css'%}">
-    
-    <link rel="stylesheet" type="text/css" href="{% static 'ckeditor/ckeditor.css' %}">
-</head>
     <title>{%block title%}{%endblock title%}</title>
+    
+    <link rel="stylesheet" type="text/css" href="{% static 'ckeditor/ckeditor.css'%}">
 </head>
 <body>
-    
     <div class="mainbar">
-        <div class="logo"><a href="{%url 'website:index'  %}" id="contact" >LOGO</a></div>
+        <div class="logo">
+            <div class="links">
+                <a href="{%url 'website:index'  %}" id="contact" > 
+                    <!-- {% for pic in images %} -->
+                    
+                    <img src="{% static 'images/20200922_061429.jpg' %}" alt="connect" style="height: 50px; width: 50px;">
+                    
+                
+                 </a> 
+                 <!-- {%endfor%}  -->
+            </div>
+            
+        </div>
         <div class="navlinks">
             <div class="links">
-            <a href="{%url 'website:contact'  %}" id="contact" >About me</a> 
+            <a href="{%url 'website:aboutme'  %}" id="contact" >About me</a> 
 
             </div>
             <div class="links">
-    <a href="{%url 'website:contact'  %}" id="contact" >Work</a> 
+    <a href="{%url 'website:work'  %}" id="contact" >Work</a> 
                 
             </div>
             <div class="links">
@@ -40,11 +46,11 @@
     <div class="mainname">
     {% block content %}{% endblock %}
     {% block testimonial %}{% endblock testimonial %}
-
-  
+    {% block content3 %}{% endblock %}
+   
+    
     </div>
   <footer>  
-    
         <div class="mainfooter">
             <div class="compartment_upper">
          <div class="sideleft">   <span class="say-hello">

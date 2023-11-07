@@ -17,6 +17,11 @@ class User(models.Model):
   def as_dict(self):
         # Return all fields as a dictionary
         return vars(self)
+class MyImages(models.Model):
+     image_name=models.CharField(max_length=100)
+     image_pic=models.ImageField(upload_to='myimage',default='Logo')
+     def __str__(self):
+      return self.image_name
   
 class Testimonials(models.Model):
   testmo=models.ForeignKey(User,on_delete=models.CASCADE,default='Testmonials')

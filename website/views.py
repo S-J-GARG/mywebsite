@@ -1,6 +1,6 @@
 from django.shortcuts import render,redirect
 from django.http import HttpResponse
-from .models import User,Testimonials,Work,Skills,ContactForm,myBlog,EducationCertificate,Portfolio
+from .models import User,Testimonials,Work,Skills,ContactForm,myBlog,EducationCertificate,Portfolio,MyImages
 from .forms import ContactUsform
 
 
@@ -12,21 +12,23 @@ def index(request):
 # Get the IDs of the User objects in the QuerySet
     user_ids = [user.id for user in users]
     my_id=user_ids[0] # Retrieving number from list
-    my_data=User.objects.get(pk=my_id) #Since I am the only user
+    my_data=User.objects.get(pk=my_id)
+     #Since I am the only user
+    images=MyImages.objects.all()
+    imagetext={
+        'images':images
+    }
+    
     context={
         'my':my_data
+        
     }
-    # Testimonials for home page
-    tests = Testimonials.objects.order_by("-Clinet_name")[:5]  # Example: Retrieve all User objects
+     # Example: Retrieve all User objects
 # Get the IDs of the User objects in the QuerySet
     # test_ids = [user.id for user in tests]
     # test_id=test_ids[0] # Retrieving number from list
     # test_data=Testimonials.objects.get(pk=test_id) #Since I am the only user
-    testtext={
-        'test':tests
-    }
-    
-    return render(request, 'website/index.html', {**context,**testtext})
+    return render(request, 'website/index.html',{**context,**imagetext})
 # def testimonial(request):
 # # Replace this with your specific query, such as filtering or retrieving all users
 #     users = Testimonials.objects.all()  # Example: Retrieve all User objects
@@ -38,11 +40,10 @@ def index(request):
 #         'test':my_data
 #     }
 #     # Testimonials for home page
-    
-    
 #     return render(request, 'website/index.html', context)
 
 def contact(request):
+   
     if request.method == 'POST':
         form = ContactUsform(request.POST)
         if form.is_valid():
@@ -59,11 +60,37 @@ def contact(request):
 
     else:
         form = ContactUsform()
+    images=MyImages.objects.all()
+    imagetext={
+        'images':images
+    }
+        
 
-    return render(request, 'website/contactus.html', {'form': form})
+    return render(request, 'website/contactus.html', {'form': form,**imagetext})
 def blog(request):
     blogs=myBlog.objects.order_by("-article_name")[:5]
     blogtext={
         'blog':blogs
     }
-    return render(request,'website/blog.html',blogtext)
+    images=MyImages.objects.all()
+    imagetext={
+        'images':images
+    }
+    return render(request,'website/blog.html',{**blogtext,**imagetext})
+def aboutme(request):
+     images=MyImages.objects.all()
+     imagetext={
+        'images':images
+    }
+     return render(request,'website/aboutme.html',imagetext)
+def work(request):
+    # Testimonials for home page
+    tests = Testimonials.objects.order_by("-Clinet_name")[:5] 
+    images=MyImages.objects.all()
+    imagetext={
+        'images':images
+    }
+    testtext={
+        'test':tests
+    }
+    return render(request, 'website/work.html', {**testtext,**imagetext})
