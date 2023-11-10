@@ -3,10 +3,11 @@
 <html lang="en">
 <head>
     <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta name="viewport" content="wclassth=device-wclassth, initial-scale=1.0">
     <title>{%block title%}{%endblock title%}</title>
     {%load static%}
-    <link rel="'stylesheet" type="text/css" href="{% static 'website/shapes.css'%}">
+    <link rel="stylesheet" type="text/css" href="{% static 'website/size/shapes.css' %}">
+    <link rel="stylesheet" type="text/css" href="{% static 'website/size/aboutme.css' %}">
     <link rel="stylesheet" type="text/css" href="{% static 'ckeditor/ckeditor.css'%}">
     <!-- ! Google fonts -->
     <link rel="preconnect" href="https://fonts.googleapis.com">
@@ -17,10 +18,10 @@
     <div class="mainbar">
         <div class="logo space">
             <div class="links">
-                <a href="{%url 'website:index'  %}" id="contact" > 
+                <a href="{%url 'website:index'  %}" class="contact" > 
                     <!-- {% for pic in images %} -->
                     
-                    <img src="{% static 'images/20200922_061429.jpg' %}" alt="connect" style="height: 50px; width: 50px; border-radius:50%; object-fit: cover; border: 2px solid rgb(19, 14, 14);">
+                    <img src="{% static 'website/images/shivank.jpg' %}" alt="connect" style="height: 50px; width:50px; border-radius:50%; object-fit: cover; border: 2px; background-color:rgb(19, 14, 14);">
                     
                 
                  </a> 
@@ -30,19 +31,19 @@
         </div>
         <div class="navlinks space">
             <div class="links">
-            <a href="{%url 'website:aboutme'  %}" id="contact" >About me</a> 
+            <a href="{%url 'website:aboutme'  %}" class="contact" >About me</a> 
 
             </div>
             <div class="links">
-    <a href="{%url 'website:work'  %}" id="contact" >Work</a> 
+    <a href="{%url 'website:work'  %}" class="contact" >Work</a> 
                 
             </div>
             <div class="links">
-    <a href="{%url 'website:blog'  %}" id="contact" >Blog</a> 
+    <a href="{%url 'website:blog'  %}" class="contact" >Blog</a> 
 
             </div>
             <div class="links">
-    <a href="{%url 'website:contact'  %}" id="contact" >Contact </a> 
+    <a href="{%url 'website:contact'%}" class="contact" >Contact </a> 
 
             </div>
 
@@ -70,7 +71,7 @@
   <footer>  
         <div class="mainfooter">
             <div class="compartment_upper">
-         <div class="sideleft">   <span class="say-hello">
+         <div class="sclasseleft">   <span class="say-hello">
             Say Hello 
         </span>
         <u class="ft-link">
@@ -78,7 +79,7 @@
             <li class="ft-links">Telegram</li>
         </u>
     </div>
-         <div class="sideright">   <span class="say-hello">
+         <div class="sclasseright">   <span class="say-hello">
             Follow me !
         </span>
         <u class="ft-link">
@@ -90,7 +91,7 @@
         </u>
             </div>
 </div>
-        <div class="ftdividerline"></div>
+        <div class="ftdivclasserline"></div>
         <div class="compartment_lower">
                  <span class="copyright">
                     &copy; copyright 
