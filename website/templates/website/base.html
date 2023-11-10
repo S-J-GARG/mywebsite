@@ -5,17 +5,22 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>{%block title%}{%endblock title%}</title>
-    
+    {%load static%}
+    <link rel="'stylesheet" type="text/css" href="{% static 'website/shapes.css'%}">
     <link rel="stylesheet" type="text/css" href="{% static 'ckeditor/ckeditor.css'%}">
+    <!-- ! Google fonts -->
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Playfair+Display&display=swap" rel="stylesheet">
 </head>
 <body>
     <div class="mainbar">
-        <div class="logo">
+        <div class="logo space">
             <div class="links">
                 <a href="{%url 'website:index'  %}" id="contact" > 
                     <!-- {% for pic in images %} -->
                     
-                    <img src="{% static 'images/20200922_061429.jpg' %}" alt="connect" style="height: 50px; width: 50px;">
+                    <img src="{% static 'images/20200922_061429.jpg' %}" alt="connect" style="height: 50px; width: 50px; border-radius:50%; object-fit: cover; border: 2px solid rgb(19, 14, 14);">
                     
                 
                  </a> 
@@ -23,7 +28,7 @@
             </div>
             
         </div>
-        <div class="navlinks">
+        <div class="navlinks space">
             <div class="links">
             <a href="{%url 'website:aboutme'  %}" id="contact" >About me</a> 
 
@@ -37,18 +42,30 @@
 
             </div>
             <div class="links">
-    <a href="{%url 'website:contact'  %}" id="contact" >Contact Me</a> 
+    <a href="{%url 'website:contact'  %}" id="contact" >Contact </a> 
 
             </div>
 
         </div>
     </div>
+    <!-- <div class="terminalwindow">
+        <div class="mainterminal">
+            <div class="teminalhead">
+                <div class="terminallogo"></div>
+                <div class="terminalheadtext"></div>
+                <div class="terminaldots">
+                    <div class="dotred"></div>
+                    <div class="dotyellow"></div>
+                    <div class="dotgreen"></div>
+                </div>
+            </div>
+        </div>
+    </div> -->
+    
     <div class="mainname">
     {% block content %}{% endblock %}
     {% block testimonial %}{% endblock testimonial %}
     {% block content3 %}{% endblock %}
-   
-    
     </div>
   <footer>  
         <div class="mainfooter">

@@ -15,32 +15,15 @@ def index(request):
     my_data=User.objects.get(pk=my_id)
      #Since I am the only user
     images=MyImages.objects.all()
-    imagetext={
-        'images':images
-    }
+    
     
     context={
-        'my':my_data
+        'my':my_data,
+        'images':images
         
     }
-     # Example: Retrieve all User objects
-# Get the IDs of the User objects in the QuerySet
-    # test_ids = [user.id for user in tests]
-    # test_id=test_ids[0] # Retrieving number from list
-    # test_data=Testimonials.objects.get(pk=test_id) #Since I am the only user
-    return render(request, 'website/index.html',{**context,**imagetext})
-# def testimonial(request):
-# # Replace this with your specific query, such as filtering or retrieving all users
-#     users = Testimonials.objects.all()  # Example: Retrieve all User objects
-# # Get the IDs of the User objects in the QuerySet
-#     user_ids = [user.id for user in users]
-#     my_id=user_ids[0] # Retrieving number from list
-#     my_data=Testimonials.objects.get(pk=my_id) #Since I am the only user
-#     context={
-#         'test':my_data
-#     }
-#     # Testimonials for home page
-#     return render(request, 'website/index.html', context)
+    return render(request, 'website/index.html',context)
+
 
 def contact(request):
    
@@ -69,28 +52,35 @@ def contact(request):
     return render(request, 'website/contactus.html', {'form': form,**imagetext})
 def blog(request):
     blogs=myBlog.objects.order_by("-article_name")[:5]
+    images=MyImages.objects.all()
+
     blogtext={
+        'images':images,
         'blog':blogs
     }
-    images=MyImages.objects.all()
-    imagetext={
-        'images':images
-    }
-    return render(request,'website/blog.html',{**blogtext,**imagetext})
+    return render(request,'website/blog.html',blogtext)
+
 def aboutme(request):
+     edu=EducationCertificate.objects.all()
+     skill=Skills.objects.all()
      images=MyImages.objects.all()
-     imagetext={
+     context={
+         'education':edu,
+         'skill':skill,
         'images':images
     }
-     return render(request,'website/aboutme.html',imagetext)
+     return render(request,'website/aboutme.html',context)
+
 def work(request):
-    # Testimonials for home page
+    works=Work.objects.all()
+    portfolio=Portfolio.objects.all()
     tests = Testimonials.objects.order_by("-Clinet_name")[:5] 
     images=MyImages.objects.all()
-    imagetext={
-        'images':images
+    context={
+         'test':tests,
+        'images':images,
+        'worked':works,
+        'portfolio':portfolio
     }
-    testtext={
-        'test':tests
-    }
-    return render(request, 'website/work.html', {**testtext,**imagetext})
+    
+    return render(request, 'website/work.html', context)
