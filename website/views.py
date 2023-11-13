@@ -12,18 +12,35 @@ def index(request):
 # Get the IDs of the User objects in the QuerySet
     user_ids = [user.id for user in users]
     my_id=user_ids[0] # Retrieving number from list
-    my_data=User.objects.get(pk=my_id)
-     #Since I am the only user
-    images=MyImages.objects.all()
-    
-    
+    my_data=User.objects.get(pk=my_id) #Since I am the only user
     context={
-        'my':my_data,
-        'images':images
-        
+        'my':my_data
     }
-    return render(request, 'website/index.html',context)
-
+    # Testimonials for home page
+    tests = Testimonials.objects.order_by("-Clinet_name")[:5]  # Example: Retrieve all User objects
+# Get the IDs of the User objects in the QuerySet
+    # test_ids = [user.id for user in tests]
+    # test_id=test_ids[0] # Retrieving number from list
+    # test_data=Testimonials.objects.get(pk=test_id) #Since I am the only user
+    testtext={
+        'test':tests
+    }
+    
+    return render(request, 'website/index.html', {**context,**testtext})
+# def testimonial(request):
+# # Replace this with your specific query, such as filtering or retrieving all users
+#     users = Testimonials.objects.all()  # Example: Retrieve all User objects
+# # Get the IDs of the User objects in the QuerySet
+#     user_ids = [user.id for user in users]
+#     my_id=user_ids[0] # Retrieving number from list
+#     my_data=Testimonials.objects.get(pk=my_id) #Since I am the only user
+#     context={
+#         'test':my_data
+#     }
+#     # Testimonials for home page
+    
+    
+#     return render(request, 'website/index.html', context)
 
 def contact(request):
    
@@ -59,28 +76,3 @@ def blog(request):
         'blog':blogs
     }
     return render(request,'website/blog.html',blogtext)
-
-def aboutme(request):
-     edu=EducationCertificate.objects.all()
-     skill=Skills.objects.all()
-     images=MyImages.objects.all()
-     context={
-         'education':edu,
-         'skill':skill,
-        'images':images
-    }
-     return render(request,'website/aboutme.html',context)
-
-def work(request):
-    works=Work.objects.all()
-    portfolio=Portfolio.objects.all()
-    tests = Testimonials.objects.order_by("-Clinet_name")[:5] 
-    images=MyImages.objects.all()
-    context={
-         'test':tests,
-        'images':images,
-        'worked':works,
-        'portfolio':portfolio
-    }
-    
-    return render(request, 'website/work.html', context)

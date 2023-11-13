@@ -3,35 +3,23 @@
 <html lang="en">
 <head>
     <meta charset="UTF-8">
-    <meta name="viewport" content="wclassth=device-wclassth, initial-scale=1.0">
-    <title>{%block title%}{%endblock title%}</title>
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
     {%load static%}
-    <link rel="stylesheet" type="text/css" href="{% static 'website/size/shapes.css' %}">
-    <link rel="stylesheet" type="text/css" href="{% static 'website/size/aboutme.css' %}">
-    <link rel="stylesheet" type="text/css" href="{% static 'ckeditor/ckeditor.css'%}">
-    <!-- ! Google fonts -->
-    <link rel="preconnect" href="https://fonts.googleapis.com">
-<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-<link href="https://fonts.googleapis.com/css2?family=Playfair+Display&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="{% static 'website/colors/basestyle.css'%}" >
+    {%load static%}
+    <link rel="stylesheet" href="{% static 'website/colors/index.css'%}">
+    <link rel="stylesheet" href="{% static 'website/fonts/basefonts.css'%}">
+    
+    <link rel="stylesheet" type="text/css" href="{% static 'ckeditor/ckeditor.css' %}">
+</head>
+    <title>{%block title%}{%endblock title%}</title>
 </head>
 <body>
     <div class="mainbar">
-        <div class="logo space">
+        <div class="logo"><a href="{%url 'website:index'  %}" id="contact" >LOGO</a></div>
+        <div class="navlinks">
             <div class="links">
-                <a href="{%url 'website:index'  %}" class="contact" > 
-                    <!-- {% for pic in images %} -->
-                    
-                    <img src="{% static 'website/images/shivank.jpg' %}" alt="connect" style="height: 50px; width:50px; border-radius:50%; object-fit: cover; border: 2px; background-color:rgb(19, 14, 14);">
-                    
-                
-                 </a> 
-                 <!-- {%endfor%}  -->
-            </div>
-            
-        </div>
-        <div class="navlinks space">
-            <div class="links">
-            <a href="{%url 'website:aboutme'  %}" class="contact" >About me</a> 
+            <a href="{%url 'website:contact'  %}" id="contact" >About me</a> 
 
             </div>
             <div class="links">
@@ -66,7 +54,8 @@
     <div class="mainname">
     {% block content %}{% endblock %}
     {% block testimonial %}{% endblock testimonial %}
-    {% block content3 %}{% endblock %}
+
+  
     </div>
   <footer>  
         <div class="mainfooter">

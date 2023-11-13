@@ -10,5 +10,7 @@ path('blog/',views.blog,name='blog'),
 path('aboutme/',views.aboutme,name='aboutme'),
 path('work/',views.work,name='work'),
 
+path('aboutme/',views.aboutme,name='aboutme'),
+
 ]
   
